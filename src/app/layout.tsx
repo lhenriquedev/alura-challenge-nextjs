@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Chakra_Petch, Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "./components/header";
+import { NuqsAdapter } from "nuqs/adapters/next";
+import Providers from "./providers";
 
 const chakraPetch = Chakra_Petch({
   variable: "--font-chakra-petch",
@@ -26,10 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${chakraPetch.variable} ${inter.variable} antialiased mx-auto max-w-6xl p-16`}
+        className={`${chakraPetch.variable} ${inter.variable} antialiased mx-auto max-w-7xl p-16`}
       >
-        <Header />
-        {children}
+        <Providers>
+          <NuqsAdapter>
+            <Header />
+            {children}
+          </NuqsAdapter>
+        </Providers>
       </body>
     </html>
   );

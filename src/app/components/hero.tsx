@@ -11,16 +11,16 @@ export function Hero() {
           width={224}
           height={224}
         />
-        <p className="text-main font-bold font-chakra-petch">
+        <h1 className="text-main font-bold font-chakra-petch">
           Olá, meu nome é Fernanda_
-        </p>
+        </h1>
 
-        <p className="text-secondary font-bold text-6xl text-center leading-[101%] font-chakra-petch">
+        <h2 className="text-secondary font-bold text-6xl text-center leading-[101%] font-chakra-petch">
           Eu ensino{" "}
           <span className="bg-gradient-to-r from-gradient to-main  bg-clip-text text-transparent">
             Programação
           </span>
-        </p>
+        </h2>
 
         <p className="text-tertiary text-center leading-[150%] font-inter max-w-[581px]">
           Sou Engenheira de Computação e Pedagoga. Ensino pensamento
