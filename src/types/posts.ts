@@ -1,5 +1,3 @@
-import { httpClient } from "../lib/httpClient"
-
 export interface Post {
   id: string
   title: string
@@ -35,16 +33,11 @@ export interface Pagination {
 export interface Meta {
   generatedAt: string
   seed: string
-  category: string
+  category?: string
 }
 
 export interface PostsResponse {
   posts: Post[]
   pagination: Pagination
   meta: Meta
-}
-
-export async function getPosts() {
-  const { data } = await httpClient.get<PostsResponse>('/posts')
-  return data
 }

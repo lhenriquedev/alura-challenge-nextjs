@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Alura Challenge Next.js
 
-## Getting Started
+Este é um projeto Next.js desenvolvido como parte do desafio Alura. O projeto é um blog que exibe posts de uma API, com uma página inicial, páginas de detalhes de post e filtragem de posts.
 
-First, run the development server:
+## Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Listagem de posts na página inicial.
+- Página de detalhes para cada post.
+- Filtragem de posts por categoria.
+- Uso de Server-Side Rendering (SSR) para renderização inicial dos posts.
+- Uso de React Query para cache e requisições de dados no client-side.
+- Estilização com Tailwind CSS.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologias Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Next.js](https://nextjs.org/)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [React Query](https://tanstack.com/query/latest)
+- [Axios](https://axios-http.com/)
+- [Zod](https://zod.dev/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Como executar o projeto
 
-## Learn More
+1. **Clone o repositório:**
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone https://github.com/seu-usuario/alura-challenge-nextjs.git
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Instale as dependências:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. **Inicie o servidor de desenvolvimento:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
+
+## Scripts Disponíveis
+
+- `npm run dev`: Inicia o servidor de desenvolvimento.
+- `npm run build`: Gera a build de produção do projeto.
+- `npm run start`: Inicia o servidor de produção.
+- `npm run lint`: Executa o linter para verificar a qualidade do código.

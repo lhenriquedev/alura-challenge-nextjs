@@ -1,13 +1,12 @@
 "use client";
-import { useQueryState } from "nuqs";
 
-type Category = "backend" | "frontend";
+import { parseAsString, useQueryState } from "nuqs";
 
 export function HomeFilter() {
-  const [search, setSearch] = useQueryState("search");
-  const [category, setCategory] = useQueryState("category");
+  const [search, setSearch] = useQueryState("search", parseAsString);
+  const [, setCategory] = useQueryState("category", parseAsString);
 
-  const handleClickCategory = (category: Category) => {
+  const handleClickCategory = (category: string) => {
     setCategory(category);
   };
 
@@ -36,9 +35,9 @@ export function HomeFilter() {
         </button> */}
         <button
           className="bg-main py-2 px-3 rounded-sm hover:brightness-110 cursor-pointer focus:outline-2 focus:outline-offset-2 focus:outline-main active:bg-main"
-          onClick={() => handleClickCategory("backend")}
+          onClick={() => handleClickCategory("devops")}
         >
-          Back-end
+          Devops
         </button>
         <button
           className="bg-main py-2 px-3 rounded-sm hover:brightness-110 cursor-pointer focus:outline-2 focus:outline-offset-2 focus:outline-main active:bg-main"
