@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${chakraPetch.variable} ${inter.variable} antialiased mx-auto max-w-7xl p-16 dark:bg-background`}
+        className={`${chakraPetch.variable} ${inter.variable} antialiased mx-auto max-w-7xl p-8 md:p-16 dark:bg-background`}
       >
         <Providers>
           <NuqsAdapter>
@@ -38,7 +38,7 @@ export default function RootLayout({
           </NuqsAdapter>
         </Providers>
 
-        <p className="text-tertiary text-center mt-16">
+        <p className="text-tertiary text-center text-sm md:text-base mt-16">
           © Copyright 2025. Produzido por Fernanda Mascheti
         </p>
       </body>

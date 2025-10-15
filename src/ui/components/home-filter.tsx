@@ -11,8 +11,8 @@ export function HomeFilter() {
   };
 
   return (
-    <div className="mt-20 flex items-center justify-between mb-8">
-      <div className="flex gap-8 items-center">
+    <div className="mt-10 md:mt-20 flex flex-col gap-4 items-center justify-between mb-8">
+      <div className="flex flex-col gap-4 md:gap-8 md:items-center">
         <h2 className="text-2xl text-secondary font-bold font-chakra-petch dark:text-foreground">
           Minhas postagens
         </h2>
@@ -27,7 +27,7 @@ export function HomeFilter() {
         </label>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex flexc items-center gap-4">
         <h2 className="text-secondary font-bold dark:text-foreground">
           Categorias:
         </h2>

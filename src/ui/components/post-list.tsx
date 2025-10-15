@@ -16,9 +16,9 @@ export function PostList({ initialData }: PostListProps) {
 
   return (
     <>
-      <HomeFilter />
+      {/* <HomeFilter /> */}
 
-      <ul className="grid grid-cols-3 gap-6">
+      <ul className="md:grid md:grid-cols-3 gap-6 flex overflow-x-auto overflow-visible">
         {(isLoading || isFetching) &&
           Array.from({ length: 6 }).map((_, index) => (
             <PostCardSkeleton key={index} />

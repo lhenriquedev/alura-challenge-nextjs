@@ -26,10 +26,10 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
   const { posts } = await getPostByTag({ tag: post.tags[0].slug });
 
   return (
-    <section className="mt-24">
-      <div className="flex justify-between gap-6 mb-16">
+    <section className="mt-12 md:mt-24">
+      <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-6 mb-8 md:mb-16">
         <div className="flex flex-col gap-6 max-w-[556px]">
-          <h1 className="text-5xl text-secondary font-bold leading-[101%] font-chakra-petch dark:text-foreground">
+          <h1 className="text-3xl md:text-5xl text-secondary font-bold leading-[101%] font-chakra-petch dark:text-foreground">
             {post.title}
           </h1>
 
@@ -73,7 +73,9 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
         />
       </div>
 
-      <p className="text-tertiary leading-[150%] mb-8">{post.content}</p>
+      <p className="text-tertiary text-sm md:text-base leading-[150%] mb-8">
+        {post.content}
+      </p>
 
       <Suspense fallback={<PostCardSkeleton />}>
         <div className="space-y-10">
@@ -81,7 +83,7 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
             Postagens relacionadas
           </h3>
 
-          <ul className="grid grid-cols-3 gap-6">
+          <ul className="md:grid md:grid-cols-3 gap-6 flex overflow-x-auto overflow-visible">
             {posts?.map((post) => (
               <PostCard
                 key={post.id}
