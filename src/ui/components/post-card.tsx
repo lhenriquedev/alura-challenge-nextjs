@@ -12,7 +12,7 @@ export function PostCard({ to, description, title, imageUrl }: PostCardProps) {
   return (
     <Link
       href={to}
-      className="flex flex-col gap-7 border border-main rounded-md p-6"
+      className="flex flex-col gap-7 border border-main rounded-md p-6 dark:bg-cardBackground"
     >
       <Image
         src={imageUrl}
@@ -23,7 +23,7 @@ export function PostCard({ to, description, title, imageUrl }: PostCardProps) {
         className="rounded-md"
       />
 
-      <h2 className="font-chakra-petch text-xl text-secondary font-bold line-clamp-2">
+      <h2 className="font-chakra-petch text-xl text-secondary font-bold line-clamp-2 dark:text-foreground">
         {title}
       </h2>
       <p className="text-tertiary line-clamp-3">{description}</p>

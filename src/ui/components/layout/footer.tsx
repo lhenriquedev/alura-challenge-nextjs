@@ -6,7 +6,7 @@ export function Footer() {
           <h3 className="font-chakra-petch text-main leading-[150%]">
             Vamos conversar?
           </h3>
-          <h2 className="font-chakra-petch text-secondary font-bold text-6xl leading-[101%]">
+          <h2 className="font-chakra-petch text-secondary font-bold text-6xl leading-[101%] dark:text-foreground">
             Entre em contato
           </h2>
         </div>
@@ -14,17 +14,26 @@ export function Footer() {
         <div>
           <ul>
             <li>
-              <a href="" className="text-tertiary leading-[150%]">
+              <a
+                href=""
+                className="text-tertiary leading-[150%] dark:text-foreground"
+              >
                 fernandamascheti@gmail.com
               </a>
             </li>
             <li>
-              <a href="" className="text-tertiary leading-[150%]">
+              <a
+                href=""
+                className="text-tertiary leading-[150%] dark:text-foreground"
+              >
                 /Fernanda Mascheti
               </a>
             </li>
             <li>
-              <a href="" className="text-tertiary leading-[150%]">
+              <a
+                href=""
+                className="text-tertiary leading-[150%] dark:text-foreground"
+              >
                 /fernandamascheti
               </a>
             </li>

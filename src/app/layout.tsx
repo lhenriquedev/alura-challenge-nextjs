@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${chakraPetch.variable} ${inter.variable} antialiased mx-auto max-w-7xl p-16`}
+        className={`${chakraPetch.variable} ${inter.variable} antialiased mx-auto max-w-7xl p-16 dark:bg-background`}
       >
         <Providers>
           <NuqsAdapter>

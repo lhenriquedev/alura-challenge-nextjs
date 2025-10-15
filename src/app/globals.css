@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --card: transparent;
 
   --main: #1CA7CB;
   --secondary: #284260;
@@ -17,6 +18,7 @@
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
   --color-gradient: var(--gradient-purple);
+  --color-cardBackground: var(--card);
 
   --font-chakra-petch: var(--font-chakra-petch);
   --font-inter: var(--font-inter);
@@ -24,9 +26,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* corrigir */
-    --background: #FFFFFF; 
+    --background: #0a0a0a; 
     --foreground: #ededed;
+    --card: #FFFFFF0F;
   }
 }
 

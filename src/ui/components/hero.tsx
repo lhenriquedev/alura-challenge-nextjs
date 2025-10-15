@@ -15,7 +15,7 @@ export function Hero() {
           Olá, meu nome é Fernanda_
         </h1>
 
-        <h2 className="text-secondary font-bold text-6xl text-center leading-[101%] font-chakra-petch">
+        <h2 className="text-secondary font-bold text-6xl text-center leading-[101%] font-chakra-petch dark:text-foreground">
           Eu ensino{" "}
           <span className="bg-gradient-to-r from-gradient to-main  bg-clip-text text-transparent">
             Programação

@@ -14,6 +14,8 @@ export function usePosts(initialData: PostsResponse) {
       return data
     },
     initialData,
+    staleTime: 5 * 60 * 1000,
+    refetchOnWindowFocus: false,
   })
 
   return { ...query, page, setPage }

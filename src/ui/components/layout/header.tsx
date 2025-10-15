@@ -19,7 +19,7 @@ export function Header() {
             <Link
               data-active={pathName === "/"}
               href="/"
-              className="text-secondary text-xl font-bold leading-[100%] data-[active=true]:text-main"
+              className="text-secondary text-xl font-bold leading-[100%] data-[active=true]:text-main dark:text-foreground"
             >
               Início
             </Link>
@@ -28,7 +28,7 @@ export function Header() {
             <Link
               data-active={pathName.startsWith("/blog")}
               href={`/blog/1234`}
-              className="text-secondary text-xl font-bold leading-[100%] data-[active=true]:text-main"
+              className="text-secondary text-xl font-bold leading-[100%] data-[active=true]:text-main dark:text-foreground"
             >
               Blog
             </Link>

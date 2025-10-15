@@ -29,21 +29,21 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
     <section className="mt-24">
       <div className="flex justify-between gap-6 mb-16">
         <div className="flex flex-col gap-6 max-w-[556px]">
-          <h1 className="text-5xl text-secondary font-bold leading-[101%] font-chakra-petch">
+          <h1 className="text-5xl text-secondary font-bold leading-[101%] font-chakra-petch dark:text-foreground">
             {post.title}
           </h1>
 
           <div className="flex flex-col items-start gap-5">
-            <h3 className="text-tertiary font-bold leading-[150%]">
+            <h3 className="text-tertiary font-bold leading-[150%] dark:text-foreground">
               Categoria:
             </h3>
-            <div className="bg-main p-2 px-3 rounded-sm">
+            <div className="bg-main p-2 px-3 rounded-sm dark:text-foreground">
               <h4>{post?.category?.name}</h4>
             </div>
           </div>
 
           <div>
-            <h3 className="text-tertiary font-bold leading-[150%] mb-5">
+            <h3 className="text-tertiary font-bold leading-[150%] mb-5 dark:text-foreground">
               Tags:
             </h3>
 
@@ -53,7 +53,7 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
                   key={tag.slug}
                   className="py-2 px-3 border border-main rounded-sm"
                 >
-                  <h4 className="font-bold text-main leading-[150%]">
+                  <h4 className="font-bold text-main leading-[150%] dark:text-main">
                     {tag.name}
                   </h4>
                 </li>
@@ -77,7 +77,7 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
 
       <Suspense fallback={<PostCardSkeleton />}>
         <div className="space-y-10">
-          <h3 className="text-secondary font-chakra-petch font-bold text-2xl">
+          <h3 className="text-secondary font-chakra-petch font-bold text-2xl dark:text-foreground">
             Postagens relacionadas
           </h3>
 

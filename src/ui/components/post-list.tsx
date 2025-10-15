@@ -12,7 +12,7 @@ type PostListProps = {
 };
 
 export function PostList({ initialData }: PostListProps) {
-  const { data, isLoading, isFetching, error, setPage } = usePosts(initialData);
+  const { data, isLoading, isFetching, setPage } = usePosts(initialData);
 
   return (
     <>
