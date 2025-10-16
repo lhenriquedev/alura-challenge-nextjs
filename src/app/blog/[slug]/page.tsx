@@ -1,10 +1,9 @@
 import Image from "next/image";
 import { getPostById } from "@/services/get-post-by-id";
 import { Metadata } from "next";
-import { getPostByTag } from "@/services/get-post-by-tag";
-import { PostCard } from "@/ui/components/post-card";
 import { Suspense } from "react";
 import { PostCardSkeleton } from "@/ui/components/post-card-skeleton";
+import { PostRelated } from "@/ui/components/post-related";
 
 export async function generateMetadata({
   params,
@@ -21,9 +20,7 @@ export async function generateMetadata({
 
 export default async function Page({ params }: PageProps<"/blog/[slug]">) {
   const { slug } = await params;
-
   const { post } = await getPostById({ id: slug });
-  const { posts } = await getPostByTag({ tag: post.tags[0].slug });
 
   return (
     <section className="mt-12 md:mt-24">
@@ -78,17 +75,7 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
       </p>
 
       <Suspense fallback={<PostCardSkeleton />}>
-        <div className="space-y-10">
-          <h3 className="text-secondary font-chakra-petch font-bold text-2xl dark:text-foreground">
-            Postagens relacionadas
-          </h3>
-
-          <ul className="md:grid md:grid-cols-3 gap-6 flex overflow-x-auto overflow-visible">
-            {posts?.map((post) => (
-              <PostCard key={post.id} to={`/blog/${post.id}`} {...post} />
-            ))}
-          </ul>
-        </div>
+        <PostRelated tag={post.tags[0].slug} />
       </Suspense>
     </section>
   );
