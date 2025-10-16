@@ -1,6 +1,5 @@
 "use client";
 
-import { HomeFilter } from "@/ui/components/home-filter";
 import { PaginationNumbers } from "@/ui/components/pagination";
 import { PostCard } from "@/ui/components/post-card";
 import { PostsResponse } from "@/types/posts";
