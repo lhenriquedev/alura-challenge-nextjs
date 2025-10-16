@@ -85,13 +85,7 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
 
           <ul className="md:grid md:grid-cols-3 gap-6 flex overflow-x-auto overflow-visible">
             {posts?.map((post) => (
-              <PostCard
-                key={post.id}
-                to={`/blog/${post.id}`}
-                description={post.content}
-                imageUrl={post.imageUrl}
-                title={post.title}
-              />
+              <PostCard key={post.id} to={`/blog/${post.id}`} {...post} />
             ))}
           </ul>
         </div>

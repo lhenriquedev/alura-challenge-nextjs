@@ -1,6 +1,5 @@
 import { Providers } from "@/providers";
 import { Chakra_Petch, Inter } from "next/font/google";
-import { Footer } from "@/ui/components/layout/footer";
 import { Header } from "@/ui/components/layout/header";
 import { NuqsAdapter } from "nuqs/adapters/next";
 import type { Metadata } from "next";
@@ -29,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${chakraPetch.variable} ${inter.variable} antialiased mx-auto max-w-7xl p-8 md:p-16 dark:bg-background`}
+        className={`${chakraPetch.variable} ${inter.variable} antialiased mx-auto max-w-7xl p-6 md:p-16 dark:bg-background`}
       >
         <Providers>
           <NuqsAdapter>

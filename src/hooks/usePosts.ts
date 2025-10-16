@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { parseAsInteger, parseAsString, useQueryState } from 'nuqs';
 import { PostsResponse } from '@/types/posts';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, keepPreviousData } from '@tanstack/react-query';
 
 export function usePosts(initialData: PostsResponse) {
   const [category] = useQueryState('category', parseAsString.withDefault('frontend'))
@@ -14,8 +14,7 @@ export function usePosts(initialData: PostsResponse) {
       return data
     },
     initialData,
-    staleTime: 5 * 60 * 1000,
-    refetchOnWindowFocus: false,
+    placeholderData: keepPreviousData
   })
 
   return { ...query, page, setPage }

@@ -14,28 +14,16 @@ type PostListProps = {
 export function PostList({ initialData }: PostListProps) {
   const { data, isLoading, isFetching, setPage } = usePosts(initialData);
 
+  if (isLoading || isFetching) {
+    return <PostCardSkeleton />;
+  }
+
   return (
     <>
-      {/* <HomeFilter /> */}
-
-      <ul className="md:grid md:grid-cols-3 gap-6 flex overflow-x-auto overflow-visible">
-        {(isLoading || isFetching) &&
-          Array.from({ length: 6 }).map((_, index) => (
-            <PostCardSkeleton key={index} />
-          ))}
-
-        {!isLoading &&
-          !isFetching &&
-          data.posts.length > 0 &&
-          data.posts.map((post) => (
-            <PostCard
-              key={post.id}
-              title={post.title}
-              description={post.content}
-              imageUrl={post.imageUrl}
-              to={`/blog/${post.id}`}
-            />
-          ))}
+      <ul className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 flex overflow-x-auto overflow-visible">
+        {data.posts.map((post) => (
+          <PostCard key={post.id} to={`/blog/${post.id}`} {...post} />
+        ))}
       </ul>
 
       <PaginationNumbers

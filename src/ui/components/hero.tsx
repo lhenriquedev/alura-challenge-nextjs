@@ -10,6 +10,10 @@ export function Hero() {
           alt="Hero's page"
           width={224}
           height={224}
+          style={{
+            width: "auto",
+            height: "auto",
+          }}
         />
         <h1 className="text-main font-bold font-chakra-petch">
           Olá, meu nome é Fernanda_
