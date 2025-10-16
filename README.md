@@ -1,7 +1,9 @@
 # Alura Challenge Next.js
+
 > Blog para encontrar conteúdos sobre tecnologia.
 
 ## Sumário
+
 - [Tecnologias & Arquitetura](#tecnologias--arquitetura)
 - [Pré-requisitos](#pré-requisitos)
 - [Configuração do Ambiente](#configuração-do-ambiente)
@@ -21,6 +23,7 @@
 - [Autor & Contato](#autor--contato)
 
 ## Tecnologias & Arquitetura
+
 - **Next.js 15** — Estrutura principal com App Router, páginas server-side e rota API para proxy dos posts.
 - **React 19** — Composição declarativa de componentes e interação fluida na UI.
 - **TypeScript 5** — Tipagem estática garante segurança em dados de posts, categorias e paginação.
@@ -32,9 +35,11 @@
 - **ESLint (config Next)** — Padronização de código alinhada ao ecossistema Next.js.
 
 ## Pré-requisitos
+
 N/A
 
 ## Configuração do Ambiente
+
 1. Verifique se há um arquivo `.env.example`. No momento: N/A. Crie manualmente o `.env.local` na raiz do projeto.
 2. Copie o template abaixo para `.env.local` e ajuste os valores conforme o ambiente seguro:
    ```bash
@@ -43,6 +48,7 @@ N/A
 3. Garanta que `.env.local` esteja listado no `.gitignore`. Nunca faça commit de credenciais reais.
 
 ## Como Rodar (sem Docker)
+
 1. Instale dependências:
    ```bash
    npm install
@@ -58,12 +64,15 @@ N/A
    - Lint: `npm run lint`
 
 ## Como Rodar com Docker
+
 N/A
 
 ## Banco de Dados & Migrações
+
 N/A
 
 ## Estrutura de Pastas
+
 ```
 alura-challenge-nextjs/
 ├── public/
@@ -104,45 +113,51 @@ alura-challenge-nextjs/
 └── ...
 ```
 
-| Pasta | Descrição |
-| --- | --- |
-| `src/app` | Páginas do Next.js (App Router) e estilos globais. |
-| `src/app/api/posts` | Rota serverless que faz proxy para a API externa de posts. |
-| `src/app/blog/[slug]` | Página dinâmica de detalhes, metadata e loading states. |
-| `src/hooks` | Hooks customizados (ex.: paginação e filtros com React Query). |
-| `src/lib` | Utilitários compartilhados como o cliente HTTP configurado. |
-| `src/providers` | Providers globais (React Query, DevTools, adapters). |
-| `src/services` | Camada de acesso a dados externos (posts, tags, categorias). |
-| `src/types` | Tipagens compartilhadas para posts, meta e paginação. |
-| `src/ui/components` | Componentes visuais reutilizáveis, layout e interações. |
-| `public` | Assets estáticos servidos pelo Next.js. |
+| Pasta                 | Descrição                                                      |
+| --------------------- | -------------------------------------------------------------- |
+| `src/app`             | Páginas do Next.js (App Router) e estilos globais.             |
+| `src/app/api/posts`   | Rota serverless que faz proxy para a API externa de posts.     |
+| `src/app/blog/[slug]` | Página dinâmica de detalhes, metadata e loading states.        |
+| `src/hooks`           | Hooks customizados (ex.: paginação e filtros com React Query). |
+| `src/lib`             | Utilitários compartilhados como o cliente HTTP configurado.    |
+| `src/providers`       | Providers globais (React Query, DevTools, adapters).           |
+| `src/services`        | Camada de acesso a dados externos (posts, tags, categorias).   |
+| `src/types`           | Tipagens compartilhadas para posts, meta e paginação.          |
+| `src/ui/components`   | Componentes visuais reutilizáveis, layout e interações.        |
+| `public`              | Assets estáticos servidos pelo Next.js.                        |
 
 ## Scripts Disponíveis
-| Script | Descrição | Comando |
-| --- | --- | --- |
-| `dev` | Modo desenvolvimento com Turbopack. | `npm run dev` |
-| `build` | Build otimizada de produção. | `npm run build` |
-| `start` | Servidor Next.js após o build. | `npm run start` |
-| `lint` | Análise estática via ESLint. | `npm run lint` |
+
+| Script  | Descrição                           | Comando         |
+| ------- | ----------------------------------- | --------------- |
+| `dev`   | Modo desenvolvimento com Turbopack. | `npm run dev`   |
+| `build` | Build otimizada de produção.        | `npm run build` |
+| `start` | Servidor Next.js após o build.      | `npm run start` |
+| `lint`  | Análise estática via ESLint.        | `npm run lint`  |
 
 ## API
-| Método | Rota | Descrição | Body | Response |
-| --- | --- | --- | --- | --- |
-| GET | `/api/posts` | Proxy para `NEXT_PUBLIC_API_URL/posts/category/:category` com paginação (`limit`, `page`). | N/A | JSON compatível com `PostsResponse` (posts, pagination, meta). |
+
+| Método | Rota         | Descrição                                                                                  | Body | Response                                                       |
+| ------ | ------------ | ------------------------------------------------------------------------------------------ | ---- | -------------------------------------------------------------- |
+| GET    | `/api/posts` | Proxy para `NEXT_PUBLIC_API_URL/posts/category/:category` com paginação (`limit`, `page`). | N/A  | JSON compatível com `PostsResponse` (posts, pagination, meta). |
 
 ## Integrações Externas
+
 - **API de posts** — Base configurada via `NEXT_PUBLIC_API_URL`. Defina a URL que expõe os endpoints `/posts/category/:category`, `/posts/id/:id` e `/posts/tags/:tag`. Documentação: N/A.
 
 ## CI/CD
+
 N/A
 
 ## Padrões de Código / Contribuição
+
 - **Linting**: execute `npm run lint` antes de abrir PRs.
 - **Formatação**: utilize as classes utilitárias do Tailwind e mantenha tipagem explícita quando necessário.
 - **Commits**: convenção não definida (N/A); adote mensagens descritivas e coerentes.
 - **Fluxo de contribuição**: abra issues ou PRs descrevendo contexto e passos de teste; guidelines formais N/A.
 
 ## Troubleshooting
+
 - **Variável `NEXT_PUBLIC_API_URL` ausente**: confirme o `.env.local` e reinicie `npm run dev`.
 - **Resposta vazia na listagem de posts**: verifique se a categoria utilizada existe na API externa.
 - **Erro CORS ao chamar `/api/posts`**: habilite o domínio local na API referenciada em `NEXT_PUBLIC_API_URL`.
@@ -152,6 +167,7 @@ N/A
 - **Paginação não avança**: limpe os parâmetros da URL (`category`, `page`) e tente novamente para forçar nova consulta.
 
 ## FAQ
+
 - **Como alterar a categoria inicial da home?** Edite o valor passado em `getPosts({ category: "devops" })` em `src/app/page.tsx`.
 - **Onde ficam os componentes compartilhados?** Em `src/ui/components`, separados por tipo (layout, cards, filtros).
 - **É possível usar outro cliente HTTP?** Sim; substitua `axios` nas camadas `lib` e `services`, mantendo as tipagens de resposta.
@@ -160,10 +176,13 @@ N/A
 - **Como adicionar um novo endpoint proxy?** Crie uma nova rota em `src/app/api`, reutilizando `httpClient` para manter o cabeçalho base.
 
 ## Roadmap
+
 N/A
 
 ## Licença
+
 N/A
 
 ## Autor & Contato
-N/A
+
+Luiz Henrique
