@@ -55,13 +55,13 @@ export function HomeFilter() {
         <h2 className="text-secondary font-bold dark:text-foreground">
           Categorias:
         </h2>
-        <div className="flex gap-4 w-full md:w-fit">
+        <div className="flex gap-2 w-full overflow-x-auto">
           {categories.map((_category, index) => {
             return (
               <button
                 data-active={_category.value === category}
                 key={index}
-                className="bg-main py-2 px-3 w-full md:w-fit rounded-sm hover:brightness-110 cursor-pointer focus:outline-2 focus:outline-offset-2 focus:outline-main active:bg-main data-[active=true]:bg-secondary data-[active=true]:outline-2 data-[active=true]:outline-offset-2 data-[active=true]:outline-secondary"
+                className="bg-main py-2 px-3 min-w-fit md:w-full rounded-sm hover:brightness-110 cursor-pointer focus:outline-2 focus:outline-offset-2 focus:outline-main active:bg-main data-[active=true]:bg-secondary data-[active=true]:outline-2 data-[active=true]:outline-offset-2 data-[active=true]:outline-secondary"
                 onClick={() => handleClickCategory(_category.value)}
               >
                 {_category.name}

@@ -11,6 +11,7 @@ export function Hero() {
           src="hero.svg"
           alt="Hero's page"
           width={224}
+          loading="lazy"
           height={224}
           style={{
             width: "auto",
