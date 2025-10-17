@@ -1,8 +1,15 @@
 import { PostsResponse } from "@/types/posts"
-import { httpClient } from "../lib/httpClient"
 
+type PostsParams = {
+  page?: number
+}
 
-export async function getPosts({ category }: { category: string }) {
-  const { data } = await httpClient.get<PostsResponse>(`/posts/category/${category}?limit=6`)
-  return data
+export async function getPosts({ page }: PostsParams) {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/?page=${page}&limit=6`, {
+    next: { revalidate: 3600, tags: ["posts"] }
+  })
+
+  if (!response.ok) throw new Error('Failed to fetch posts')
+
+  return await response.json() as PostsResponse
 }

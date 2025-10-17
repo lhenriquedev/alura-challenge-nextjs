@@ -1,6 +1,7 @@
 "use client";
 
 import { parseAsString, useQueryState } from "nuqs";
+import { startTransition } from "react";
 
 const categories = [
   {
@@ -25,7 +26,11 @@ export function HomeFilter() {
   const [search, setSearch] = useQueryState("search", parseAsString);
   const [category, setCategory] = useQueryState("category", parseAsString);
 
-  const handleClickCategory = (category: string) => setCategory(category);
+  const handleClickCategory = (value: string) => {
+    startTransition(() => {
+      setCategory(value, { history: "push", shallow: false });
+    });
+  };
 
   return (
     <div className="mt-6 md:mt-10 lg:mt-20 flex flex-col lg:flex-row gap-4 items-center justify-between mb-8">
@@ -49,16 +54,18 @@ export function HomeFilter() {
           Categorias:
         </h2>
         <div className="flex gap-4 w-full md:w-fit">
-          {categories.map((_category, index) => (
-            <button
-              data-active={_category.value === category}
-              key={index}
-              className="bg-main py-2 px-3 w-full md:w-fit rounded-sm hover:brightness-110 cursor-pointer focus:outline-2 focus:outline-offset-2 focus:outline-main active:bg-main data-[active=true]:bg-secondary data-[active=true]:outline-2 data-[active=true]:outline-offset-2 data-[active=true]:outline-secondary"
-              onClick={() => handleClickCategory(_category.value)}
-            >
-              {_category.name}
-            </button>
-          ))}
+          {categories.map((_category, index) => {
+            return (
+              <button
+                data-active={_category.value === category}
+                key={index}
+                className="bg-main py-2 px-3 w-full md:w-fit rounded-sm hover:brightness-110 cursor-pointer focus:outline-2 focus:outline-offset-2 focus:outline-main active:bg-main data-[active=true]:bg-secondary data-[active=true]:outline-2 data-[active=true]:outline-offset-2 data-[active=true]:outline-secondary"
+                onClick={() => handleClickCategory(_category.value)}
+              >
+                {_category.name}
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>
