@@ -1,6 +1,6 @@
 "use client";
 
-import { parseAsString, useQueryState } from "nuqs";
+import { parseAsInteger, parseAsString, useQueryState } from "nuqs";
 import { startTransition } from "react";
 
 const categories = [
@@ -25,10 +25,12 @@ const categories = [
 export function HomeFilter() {
   const [search, setSearch] = useQueryState("search", parseAsString);
   const [category, setCategory] = useQueryState("category", parseAsString);
+  const [, setPage] = useQueryState("page", parseAsInteger);
 
   const handleClickCategory = (value: string) => {
     startTransition(() => {
       setCategory(value, { history: "push", shallow: false });
+      setPage(1);
     });
   };
 

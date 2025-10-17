@@ -15,14 +15,17 @@ export async function Posts({ currentPage, category }: PostsProps) {
   const hasCategory = !!category;
 
   const { posts, pagination } = hasCategory
-    ? await getPostsByCategory({ category })
+    ? await getPostsByCategory({ category, page: currentPage })
     : await getPosts({ page: currentPage });
 
   return (
     <>
       <HomeFilter />
 
-      <Suspense key={currentPage} fallback={<PostCardSkeleton />}>
+      <Suspense
+        key={`${category ?? ""}-${currentPage}`}
+        fallback={<PostCardSkeleton />}
+      >
         <PostList posts={posts} />
       </Suspense>
 
