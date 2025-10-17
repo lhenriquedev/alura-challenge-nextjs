@@ -51,11 +51,11 @@ export function HomeFilter() {
         </label>
       </div>
 
-      <div className="flex flex-col w-full items-start md:flex-row md:items-center md:justify-end gap-4">
+      <div className="flex flex-col w-full p-2 items-start md:flex-row md:items-center md:justify-end gap-4">
         <h2 className="text-secondary font-bold dark:text-foreground">
           Categorias:
         </h2>
-        <div className="flex gap-2 w-full overflow-x-auto">
+        <div className="flex gap-2 w-full overflow-x-auto md:overflow-x-visible">
           {categories.map((_category, index) => {
             return (
               <button

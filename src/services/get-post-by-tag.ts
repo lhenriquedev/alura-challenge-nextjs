@@ -1,4 +1,3 @@
-import { httpClient } from "@/lib/httpClient"
 import { Meta, Post } from "@/types/posts"
 
 type PostResponse = {
@@ -7,6 +6,11 @@ type PostResponse = {
 }
 
 export async function getPostByTag({ tag }: { tag: string }) {
-  const { data } = await httpClient.get<PostResponse>(`/posts/tags/${tag}?limit=3`)
-  return data
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/tags/${tag}?limit=3`, {
+    next: { revalidate: 3600 }
+  })
+
+  if (!response.ok) throw new Error('Failed to fetch posts')
+
+  return await response.json() as PostResponse
 }
